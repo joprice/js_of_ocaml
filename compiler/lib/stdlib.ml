@@ -705,6 +705,7 @@ module Filename = struct
       close_out ch;
       print_endline "renaming file";
       (* (try Sys.remove file with Sys_error _ -> ()); *)
+      Printexc.get_callstack 20 |> Printexc.raw_backtrace_to_string |> print_endline;
       Sys.rename f_tmp file
     with exc ->
       Sys.remove f_tmp;
