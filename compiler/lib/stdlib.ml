@@ -697,7 +697,7 @@ module Filename = struct
          close_out ch;
          raise e);
       close_out ch;
-      (try Sys.remove file with Sys_error _ -> ());
+      (* (try Sys.remove file with Sys_error _ -> ()); *)
       Sys.rename f_tmp file
     with exc ->
       Sys.remove f_tmp;
