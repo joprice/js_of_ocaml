@@ -703,6 +703,7 @@ module Filename = struct
          close_out ch;
          raise e);
       close_out ch;
+      print_endline "renaming file";
       (* (try Sys.remove file with Sys_error _ -> ()); *)
       Sys.rename f_tmp file
     with exc ->
